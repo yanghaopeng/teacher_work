@@ -9,6 +9,7 @@
 
 from config.settings import path
 from src.MyPickle import MyPickle
+from prettytable import PrettyTable
 import os
 
 
@@ -47,9 +48,17 @@ class Behavior(object):
 
     def printobj(self,obj):
         obj_list = self.fetchall(obj)
+        tb = PrettyTable()
+        k = 0
         for item in obj_list:
-            print(item.__dict__)
+            if k == 0:
+                tb.field_names = item.__dict__.keys()  # 字段名
+            tb.add_row(item.__dict__.values())  # 增加行
+            tb.align = 'l'
 
+            k += 1
+            # print(item.__dict__)
+        print(tb)
 
 class Teacher(Behavior):
     path = os.path.join(path, "teacher_obj")

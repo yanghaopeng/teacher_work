@@ -31,6 +31,8 @@ def interactive(object):
         user_option = input(">>:").strip()
         if user_option in menu_dic:
             obj = object()
+            if obj.fetchall(obj):
+                print('last create obj', obj.fetchall(obj)[-1].__dict__)  # 打印上次创建对象
             if user_option == '2' or user_option == '3':
                 obj.name = input('input {obj} name >'.format(obj=object.__name__))
                 getattr(obj, menu_dic.get(user_option))(obj)  # 反射调用对象的方法
@@ -50,3 +52,6 @@ def interactive(object):
 
 if __name__ == '__main__':
     interactive(Teacher)
+
+
+

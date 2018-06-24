@@ -13,6 +13,6 @@ from src.teacher import Subject
 
 if __name__ == '__main__':
    main.interactive(School)
-   main.interactive(Teacher)
+   # main.interactive(Teacher)
    main.interactive(Subject)
 
